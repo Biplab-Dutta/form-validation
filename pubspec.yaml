@@ -1,0 +1,28 @@
+name: login_form
+description: A new Flutter project.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+
+dependencies:
+  cupertino_icons: ^1.0.2
+  dartz: ^0.10.1
+  equatable: ^2.0.3
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.0.1
+  freezed_annotation: ^2.0.3
+
+dev_dependencies:
+  build_runner: ^2.1.10
+  flutter_lints: ^2.0.0
+  flutter_test:
+    sdk: flutter
+  freezed: ^2.0.3+1
+
+flutter:
+  uses-material-design: true
