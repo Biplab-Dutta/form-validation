@@ -8,13 +8,16 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Sign In Form'),
-      ),
-      body: BlocProvider(
-        create: (context) => LoginFormBloc(),
-        child: const LoginForm(),
+    return GestureDetector(
+      onTap: () => WidgetsBinding.instance.focusManager.primaryFocus?.unfocus(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Sign In Form'),
+        ),
+        body: BlocProvider(
+          create: (context) => LoginFormBloc(),
+          child: const LoginForm(),
+        ),
       ),
     );
   }

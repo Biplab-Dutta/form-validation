@@ -8,63 +8,60 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<LoginFormBloc, LoginFormState>(
-      listener: (context, state) {
-        final authFailureOrSuccess = state.authFailureOrSuccess;
+    return Center(
+      child: BlocListener<LoginFormBloc, LoginFormState>(
+        listener: (context, state) {
+          final authFailureOrSuccess = state.authFailureOrSuccess;
 
-        if (authFailureOrSuccess != null) {
-          authFailureOrSuccess.fold(
-            (failure) {
-              // Do something to handle failure. For example, show a
-              // snackbar saying "Invalid Email and Password Combination" or
-              // "Server Error" depending on the failure.
+          if (authFailureOrSuccess != null) {
+            authFailureOrSuccess.fold(
+              (failure) {
+                // Do something to handle failure. For example, show a
+                // snackbar saying "Invalid Email and Password Combination" or
+                // "Server Error" depending on the failure.
 
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(
-                    failure.when<String>(
-                      invalidEmailAndPasswordCombination: () =>
-                          'Invaid email and password combination!',
-                      serverError: () => 'Server Error!',
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      failure.when<String>(
+                        invalidEmailAndPasswordCombination: () =>
+                            'Invaid email and password combination!',
+                        serverError: () => 'Server Error!',
+                      ),
                     ),
                   ),
+                );
+              },
+              (success) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Sign in successful...'),
+                  ),
+                );
+              },
+            );
+          }
+        },
+        child: SingleChildScrollView(
+          reverse: true,
+          child: Form(
+            child: Column(
+              children: const [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+                  child: EmailInput(),
                 ),
-              );
-            },
-            (success) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Sign in successful...'),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  child: PasswordInput(),
                 ),
-              );
-            },
-          );
-        }
-      },
-      child: GestureDetector(
-        onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-        child: Center(
-          child: SingleChildScrollView(
-            reverse: true,
-            child: Form(
-              child: Column(
-                children: const [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
-                    child: EmailInput(),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    child: PasswordInput(),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  LoginButton(),
-                  SizedBox(height: 15),
-                  LoadingIndicator(),
-                ],
-              ),
+                SizedBox(
+                  height: 30,
+                ),
+                LoginButton(),
+                SizedBox(height: 15),
+                LoadingIndicator(),
+              ],
             ),
           ),
         ),
