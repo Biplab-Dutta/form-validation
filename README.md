@@ -1,16 +1,4 @@
-# login_form
+Blog Link:
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* [Dev](https://dev.to/b_plab98/product-flavors-in-flutter-create-admin-and-non-admin-apps-with-distinct-ui-with-a-single-codebase-kef)
+* [Medium](https://biplabdutta2055.medium.com/product-flavors-in-flutter-create-admin-and-non-admin-apps-with-distinct-ui-with-a-single-149d620e55c8?source=rss-351a2cbcf692------2)
